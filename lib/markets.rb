@@ -4,6 +4,6 @@
 # lib/farmar_market.rb
 
 # does this go at the top of far_mar.rb??
-class FarMar::Market
+class FarMar::Markets
   # Your code goes here
 end

@@ -1,3 +1,3 @@
 # product_spec.rb
 require_relative 'spec_helper'
-require_relative '../lib/products'
+require_relative '../far_mar'
