@@ -1,6 +1,31 @@
 ## Notes
 TRISH you will need to clean this up later!!
 
+PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}:tulip:  \e[36m$(pc)\e[m \w\$'"$command_style “ (Change the tulip to your own name or your favorite emoji!)
+
+# CSV.foreach('./support/markets.csv') do |row|
+#   puts row.inspect
+# end
+# markets[0][0] # this 1
+
+markets = CSV.read('./support/markets.csv')
+# markets variable now one big array representing table. # each table row an array, our market
+
+
+
+
+
+#------------#
+1. Get your data into a comma seperatted format.
+markets = CSV.read('./support/markets.csv')
+# markets variable now one big array representing table. # each table row an array, our markets
+
+  CSV.foreach('./support/markets.csv') do |row|
+    puts row.inspect
+  end
+
+
+#------------#
 ## Module: The module provides a namespace for the application. A namespace ensures the classes we create will not 'collide' or 'overlap' with a class that could exist elsewhere in a codebase (like in a gem).
 
 Baseline Requirements
@@ -42,3 +67,7 @@ Amount - (Fixnum) the amount of the transaction, in cents (i.e., 150 would be $1
 Purchase_time - (Datetime) when the sale was completed
 Vendor_id - (Fixnum) a reference to which vendor completed the sale
 Product_id - (Fixnum) a reference to which product was sold
+
+This website was super helpful:
+
+https://www.sitepoint.com/guide-ruby-csv-library-part/
