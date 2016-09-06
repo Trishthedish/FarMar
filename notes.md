@@ -1,4 +1,5 @@
 ## Notes
+TRISH you will need to clean this up later!!
 
 ## Module: The module provides a namespace for the application. A namespace ensures the classes we create will not 'collide' or 'overlap' with a class that could exist elsewhere in a codebase (like in a gem).
 
