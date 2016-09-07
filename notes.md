@@ -8,6 +8,16 @@ PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)
 # end
 # markets[0][0] # this 1
 
+
+THIS IS IS ONE INSTANCE> 
+id = markets[0][0]
+name = markets[0][1]
+address = markets[0][2]
+city = markets[0][3]
+county = markets[0][4]
+state = markets[0][5]
+zip = markets[0][6]
+
 markets = CSV.read('./support/markets.csv')
 # markets variable now one big array representing table. # each table row an array, our market
 
