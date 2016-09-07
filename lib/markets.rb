@@ -61,3 +61,4 @@ class FarMar::Markets
 end
 # using an id I know is in the CSV & I'm expecting it to return the market that it matches. I'm getting invalid. Perhps, I need to do something to the data passed into it.
 puts  FarMar::Markets.find(494)
+# puts FarMar::Markets.all
