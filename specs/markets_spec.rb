@@ -3,10 +3,23 @@ require_relative 'spec_helper'
 require_relative '../far_mar'
 
 describe FarMar::Markets do
-
-# this was a test built to demonstrate Rake works.
-  it "This is a test to even see if rake is working?" do
-    market1 = FarMar::Markets.new("Seattle Market")
-    expect(market1.name).must_equal("Seattle Market")
+  let(:market1) { FarMar::Market.new("Trish Stand", true) }
+  let(:market2) { FarMar::Market.new("Jon Snows", false) }
+# modeling after let lesson
+  it "Dose market have a name?" do
+    market1.name.must_equal("Trish Stand")
+    market2.name.must_equal("Jon Snows")
   end
+
+  it "Does .all return all market objects" do
+
+  end
+
+  it "" do
+
+  end
+
+
+
+
 end

@@ -10,7 +10,8 @@ require_relative('../far_mar')
 # since i'm calling from main directory. From this current directory. So on dot.
 
 class FarMar::Markets
-  attr_reader # only id will be need to be passed & checked?
+  attr_reader :id
+
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id
     @name = name
@@ -20,8 +21,9 @@ class FarMar::Markets
     @state = state
     @zip = zip
   end
-  # grab market info from above & force it into self.all? or should I move it to below?
+
   # output: return a collection of instances, representing ALL of the objects described in the CSV
+  # CSV.read, also added 'r'
   def self.all
     markets = CSV.read('./support/markets.csv')
     markets_array = []
@@ -39,55 +41,23 @@ class FarMar::Markets
     end
     return markets_array
   end
-
-  # self.find(id)
-  # also means to repeat this functionality per class?
-  #self.find: returns an instance of the object where the value of the id field in the csv matches the passed parameter.
   # input: id
   # output: an instance of market object if there is a matching id in csv.
   def self.find(id)
-    # not sure how to use already called variable outside self.all method. so until then, going to import it again.
-    markets = CSV.read('./support/markets.csv')
-    market_match = []
+    markets = FarMar::Markets.all
     markets.each do |market|
-      id = market[0]
-      if market[0] == id
-        market = FarMar::Markets.new(id, name, address, city, county, state, zip)
-        market_match << market
+      if market.id == id.to_s
         return market
-      else
-        puts "Market not found!"
       end
     end
-
+    puts "invalid, entry"
   end
 # necessary to build:
   def vendors
     #vendors: returns a collection of FarMar::Vendor instances that are associated with the market by the market_id field.
   end
-# Read_ids
-  def read_ids
-    ids = []
-    markets.each do |row|
-      ids << row[0]
-    end
-  end
-# read_names
-  def read_names
-    names = []
-    markets.each do |row|
-      names << row[1]
-    end
-  end
-# read_ address
-# Grabbing address, city, state, zip
-  def read_address
-    address = []
-    markets.each do |row|
-      address << row[2][3][4][5][6]
-      puts address
-    end
-  end
+
 
 end
-puts "Cupcakes: #{FarMar::Markets.all}"
+# using an id I know is in the CSV & I'm expecting it to return the market that it matches. I'm getting invalid. Perhps, I need to do something to the data passed into it.
+puts  FarMar::Markets.find(494)

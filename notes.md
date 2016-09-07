@@ -1,7 +1,35 @@
 ## Notes
 TRISH you will need to clean this up later!!
 
+
+
 PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}:tulip:  \e[36m$(pc)\e[m \w\$'"$command_style “ (Change the tulip to your own name or your favorite emoji!)
+#wrote these but I don't think I need them. 
+# # Read_ids
+#   def read_ids
+#     ids = []
+#     markets.each do |row|
+#       ids << row[0]
+#     end
+#   end
+# # read_names
+#   def read_names
+#     names = []
+#     markets.each do |row|
+#       names << row[1]
+#     end
+#   end
+# # read_ address
+# # Grabbing address, city, state, zip
+#   def read_address
+#     address = []
+#     markets.each do |row|
+#       address << row[2][3][4][5][6]
+#       puts address
+#     end
+#   end
+
+
 
 # CSV.foreach('./support/markets.csv') do |row|
 #   puts row.inspect
@@ -9,7 +37,7 @@ PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)
 # markets[0][0] # this 1
 
 
-THIS IS IS ONE INSTANCE> 
+THIS IS IS ONE INSTANCE>
 id = markets[0][0]
 name = markets[0][1]
 address = markets[0][2]
