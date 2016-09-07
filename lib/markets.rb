@@ -10,19 +10,20 @@ require_relative('../far_mar')
 # since i'm calling from main directory. From this current directory. So on dot.
 
 class FarMar::Markets
+  attr_reader # only id will be need to be passed & checked?
+  def initialize(id, name, address, city, county, state, zip)
+  #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
+    @id = id
+    @name = name
+    @address = address
+    @city = city
+    @county = county
+    @state = state
+    @zip = zip
+  end
+  # loaded all of the information from CSV file with:
+  # how can I associate all wiht this: an array of arrays.
   markets = CSV.read('./support/markets.csv')
-
-  def initialize
-
-  end
-
-  def self.all
-    Objectspace.each_object(self).to_a
-  end
-  def self.all
-    all.count
-  end
-
 
 
 # Read_ids
