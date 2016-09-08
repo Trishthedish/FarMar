@@ -2,28 +2,41 @@
 require_relative 'spec_helper'
 require_relative '../far_mar'
 
-describe FarMar::Markets do
-  let(:market1) { FarMar::Market.new("Trish Stand", true) }
-  let(:market2) { FarMar::Market.new("Jon Snows", false) }
+# Able to get let to work. Though I'm not comfortable with using it as effortlessly. Thus, returning to old method. Get it to work. Then I'll refactor if time allows.
+# describe FarMar::Markets do
+# modeling after let lesson
+# let(:market1) { FarMar::Market.new("Trish Stand", true) }
+# let(:market2) { FarMar::Market.new("Jon Snows", false) }
 # modeling after let lesson
 
-##### How should I break this down as far as test coverage. Do I need to seperate out the two methods of written. all & find?? #####
+# doesn't work but saving it.
+# it "Can you call market.name correctly?" do
+#   markets = FarMar::Market.all
+#   markets.find(494)
+#   expect(494).must_equal(market.id)
+# # end
+# id, name, address, city, county, state, zip)
+describe FarMar::Markets do
 
-
-  it "Dose market have a name?" do
-    market1.name.must_equal("Trish Stand")
-    market2.name.must_equal("Jon Snows")
+# 1
+# Testing that .all method returns all 500 objects.
+  it "does .all method work??" do
+      markets = FarMar::Markets.all.length
+      expect(markets).must_equal(500)
   end
-
-  it "Does .all return all market objects" do
-
+# 2
+  it "does .find method work??" do
+      market1 = FarMar::Markets.find(494).name
+      expect(market1).must_equal("Northside Farmers' Market - Youngstown")
+    # 494,Northside Farmers' Market - Youngstown,1105 Elm Street,Youngstown,Mahoning,Ohio,44505
+    # # end
   end
-
-  it "" do
-
+# 3
+#
+  it "Does calling one instance in the market class return the market I'm looking for?" do
+    market = FarMar::Markets.all.name
+    expect(market.id).must_equal(5)
   end
-
-
 
 
 end
