@@ -11,7 +11,7 @@ require_relative('../far_mar')
 
 class FarMar::Markets
 
-  attr_reader :id, :name
+  attr_reader :id, :name, :address 
 
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id

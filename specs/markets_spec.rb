@@ -23,15 +23,21 @@ describe FarMar::Markets do
   end
 #3
 # Told that I should test the first & last items.
-    it "Does calling one instance in the market class return the market I'm looking for @[0][0]?" do
+  it "Does calling one instance in the market class return the market I'm looking for @[0][0]?" do
       market = FarMar::Markets.all[0].id
       expect(market).must_equal("1")
-    end
-#4 # testing last object instance...
+  end
+#4 # testing last object instance...# Holy crap this works!!!
   it "Does the last item in the list eqaul the market that it's supposed to be?" do
       market = FarMar::Markets.all.last.name
       expect(market).must_equal("Montefiore Medical Center Farmers Market_Thursday")
-    end
+  end
+# No idea how to write this test: Tesing if param passed in for .find will be properly converted and compared. As in: it treats an interger and string the same. I believe # 2 test an interger. Now for string.
+# 5
+  it "Will the .find method work if a string param is passed in?" do
+    far_mart = FarMar::Markets.find("494").address
+    expect(far_mart).must_equal("1105 Elm Street")
+  end
 
 
 
