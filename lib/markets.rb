@@ -11,7 +11,7 @@ require_relative('../far_mar')
 
 class FarMar::Markets
 
-  attr_reader :id, :name 
+  attr_reader :id, :name
 
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id
@@ -66,11 +66,10 @@ class FarMar::Markets
 end
 # using an id I know is in the CSV & I'm expecting it to return the market that it matches. I'm getting invalid. Perhps, I need to do something to the data passed into it.
 # puts  FarMar::Markets.find(494)
-<<<<<<< HEAD
+
 
 # puts  FarMar::Markets.find(494)
 #
 # puts FarMar::Markets.all.length
-=======
+
 # puts FarMar::Markets.all
->>>>>>> oops_branch2
