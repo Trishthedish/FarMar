@@ -1,9 +1,16 @@
 ## Notes
 TRISH you will need to clean this up later!!
 
+Trish, after going through list of things terminal tells you. when you get no method error. One the first things you check should be.. do you have permission to access that thing??
+<!-- ng one instance in the product class return the products I'm looking for (first in line)ERROR (0.11s)
+NoMethodError:         NoMethodError: undefined method `name' for #<FarMar::Products:0x007fbd8d731110> -->
+
+
+
+
 # TRISH: Rake wants to see ONE dot. If you're testing things prior to going to rake. ie the terminal. Use 2 dots OR use the following set up:
 old way to run: ruby vendors.rb
-The better way: ruby lib/vendors.rb 
+The better way: ruby lib/vendors.rb
 
 PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}:tulip:  \e[36m$(pc)\e[m \w\$'"$command_style “ (Change the tulip to your own name or your favorite emoji!)
 #wrote these but I don't think I need them.
