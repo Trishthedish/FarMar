@@ -10,7 +10,7 @@ require_relative('../far_mar')
 # since i'm calling from main directory. From this current directory. So on dot.
 
 class FarMar::Markets
-  attr_reader :id, :name, 
+  attr_reader :id, :name,
 
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id
@@ -56,6 +56,10 @@ class FarMar::Markets
   def vendors
     #vendors: returns a collection of FarMar::Vendor instances that are associated with the market by the market_id field.
   end
+  # WRITING AN INSPECT METHOD???
+  # def inspect(name)
+  #
+  # end
 
 
 end
