@@ -23,6 +23,18 @@ class FarMar::Products
     end
     return products_array
   end
+  # input: id * not be confused with market id. Which will come later.
+  # output: an instance of market object if there is a matching id in csv.
+  def self.find(id)
+    # nothing to do with the other product. I like keeping semantic & streamlined varibles. Yet, I could see how using products multiples times could be confusing.
+    products = FarMar::Products.all
+    products.each do |product|
+      if product.id == id.to_s
+        return product
+      end
+    end
+    puts "invalid, entry"
+  end
 end
 
 
