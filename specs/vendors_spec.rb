@@ -5,6 +5,7 @@ require_relative '../far_mar'
 #vendor objects have the following traits:
 #id, name, num_of_employees, market_id
 describe FarMar::Vendors do
+
 ## 1
   it "Does the .all method work to display all vendor objets in CSV? Should be a list of 2,690 vendor objects" do
     vendors = FarMar::Vendors.all.length
@@ -43,36 +44,29 @@ describe FarMar::Vendors do
 
 ## 6
   it "Does Vendor id 1445 return correct num of employees (5)?" do
-    vendors = FarMar::Vendors.all.market_id(1445).num_of_employees
-    expect(vendors).must_equal(6)
+    vendors = FarMar::Vendors.find(1445).num_of_employees
+    expect(vendors).must_equal("6")
 # id: 1445, name: Stoltenberg Inc, num_of_employees: 6, market_id: 267
 
   end
 ## 7
   it "If .find method is passed a parameter(id) that isn't present will it throw the correct error??" do
-    vendor = FarMar::Vendors.find(2361)
+    vendor = FarMar::Vendors.find(2691)
     expect(vendor).must_equal(nil)
   end
 ## 8
-
-  it "Testing that .all method will return each of the vendor object instances." do
-    vendors = FarMar::Vendors.all
-
-    vendors.each do |vendor|
-
-
-    assert obj.instance_of?(FarMar::Vendors class)
-    # or is it, assert.instance_of...
-
-
-     assert obj.instance_of?(cls), msg
-    end
-  end
-
 # does .all method return each objects instances of the vendor class?
-# loop through then use instance of..FarMar::Vendor class
+# loop through then use instance of..FarMar::Vendor class eventually placed at top.
 ## 9
-  # test when the id isnt present
-
+  # it "Testing that .all method will return each of the vendor object instances." do
+  #   vendors = FarMar::Vendors.all
+  #
+  #     vendors.each do |vendor|
+  #
+  #
+  #     assert obj.instance_of?(FarMar::Vendors class)
+  #     # or is it, assert.instance_of...
+  #     # assert obj.instance_of?(cls), msg
+  #     end
 
 end
