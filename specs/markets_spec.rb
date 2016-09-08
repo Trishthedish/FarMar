@@ -38,7 +38,11 @@ describe FarMar::Markets do
     far_mart = FarMar::Markets.find("494").address
     expect(far_mart).must_equal("1105 Elm Street")
   end
-
+# 6
+  it "If .find method is passed a parameter that isn't present will it throw the correct error?" do
+    trish_shop = FarMar::Markets.find(501)
+    expect(trish_shop).must_equal(nil)
+  end
 
 
 end

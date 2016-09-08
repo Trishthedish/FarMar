@@ -11,7 +11,7 @@ require_relative('../far_mar')
 
 class FarMar::Markets
 
-  attr_reader :id, :name, :address 
+  attr_reader :id, :name, :address
 
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id
@@ -22,9 +22,7 @@ class FarMar::Markets
     @state = state
     @zip = zip
   end
-
   # output: return a collection of instances, representing ALL of the objects described in the CSV
-  # CSV.read, also added 'r'
   def self.all
     markets = CSV.read('./support/markets.csv')
     markets_array = []
@@ -37,7 +35,7 @@ class FarMar::Markets
       county = market[4]
       state = market[5]
       zip = market[6]
-      market = FarMar:: Markets.new(id, name, address, city, county, state, zip)
+      market = FarMar::Markets.new(id, name, address, city, county, state, zip)
       markets_array << market
     end
     return markets_array
@@ -56,6 +54,7 @@ class FarMar::Markets
 # necessary to build:
   def vendors
     #vendors: returns a collection of FarMar::Vendor instances that are associated with the market by the market_id field.
+
   end
   # WRITING AN INSPECT METHOD???
   # def inspect(name)

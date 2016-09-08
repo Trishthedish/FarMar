@@ -8,6 +8,7 @@ module FarMar; end
 
 # all of our data classes that live in the module
 # ...require all needed classes
+
 # The classes: markets, products, sales, vendors.
 require_relative 'lib/markets'
 require_relative 'lib/products'

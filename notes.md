@@ -1,10 +1,12 @@
 ## Notes
 TRISH you will need to clean this up later!!
 
-
+# TRISH: Rake wants to see ONE dot. If you're testing things prior to going to rake. ie the terminal. Use 2 dots OR use the following set up:
+old way to run: ruby vendors.rb
+The better way: ruby lib/vendors.rb 
 
 PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}:tulip:  \e[36m$(pc)\e[m \w\$'"$command_style “ (Change the tulip to your own name or your favorite emoji!)
-#wrote these but I don't think I need them. 
+#wrote these but I don't think I need them.
 # # Read_ids
 #   def read_ids
 #     ids = []
