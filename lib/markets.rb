@@ -11,7 +11,7 @@ require_relative('../far_mar')
 
 class FarMar::Markets
 
-  attr_reader :id, :name, :address
+  attr_reader :id, :name, :address, :vendors
 
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id
@@ -51,11 +51,20 @@ class FarMar::Markets
     end
     puts "invalid, entry"
   end
-# necessary to build:
+
   def vendors
     #vendors: returns a collection of FarMar::Vendor instances that are associated with the market by the market_id field.
-
+    vendors_array = []
+    vendors = FarMar::Vendors.all
+    vendors.each do |vendor|
+      if vendor.id == market.find(id)
+        vendors_array << vendor
+      end
+      return vendor
+    end
   end
+# compare market id with  and if they match push.
+# necessary to build:
   # WRITING AN INSPECT METHOD???
   # def inspect(name)
   #
@@ -63,7 +72,14 @@ class FarMar::Markets
 
 
 end
+
+vendor_test = FarMar::Markets
+vendor_test.vendors
+
+
 # using an id I know is in the CSV & I'm expecting it to return the market that it matches. I'm getting invalid. Perhps, I need to do something to the data passed into it.
+
+
 # puts  FarMar::Markets.find(494)
 
 
