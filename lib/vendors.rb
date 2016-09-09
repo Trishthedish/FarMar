@@ -1,7 +1,18 @@
 # lib/vendors.rb
+# require_relative('./markets.rb')
+# require_relative('../lib/products.rb')
+# require_relative('../lib/sales.rb')
 require_relative('../far_mar')
+# require_relative('./markets.rb')
+# require_relative('./markets.rb')
+# require_relative('./products.rb')
+# require_relative('./sales.rb')
 
-#
+
+
+
+
+
 # ruby lib/vendors.rb
 
 class FarMar::Vendors
@@ -43,7 +54,22 @@ class FarMar::Vendors
     puts "Invalid entry, vendor id doesn't match."
   end
 
+  def market
+    market_id = self.market_id
+    something = FarMar::Markets.find(market_id)
+    return something
+    # self.market_id
+    #the market_id of vendor.
+  end
+
+
 end
+
+vendor = FarMar::Vendors.all[1]
+puts vendor.market
+# 1,Feil-Farrell,8,1
+
+
 # this works!! AND Holy crap it also helped me figure out how many vendors existed in the big ass file!!
 # I wish I'd had a blueprint for this. .count, and length work the same!
 # puts "you have: #{FarMar::Vendors.all.length} vendors"

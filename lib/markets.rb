@@ -6,7 +6,7 @@
 
 # follows typical path.
 require_relative('../far_mar')
-require_relative('./vendors.rb')
+# require_relative('./vendors.rb')
 # does this go at the top of far_mar.rb??
 # since i'm calling from main directory. From this current directory. So on dot.
 

@@ -7,6 +7,15 @@ TRISH you will need to clean this up later!!
 	from lib/markets.rb:8:in `require_relative'
 	from lib/markets.rb:8:in `<main>'
 
+
+
+  def market
+    puts "market: #{market}"
+    market = FarMar::Markets.find(market_id)
+    return market
+  end
+THIS CAUSES A RECURSSION. 
+
 # WHAT DID I DO TO FIX THIS ERROR?
 1. Checked to see if it was being required at the top. Turns out it needs to be called at the top.
 2. Glad I rememberd to use ruby lib/markets.rb to run from main folder.
@@ -17,7 +26,7 @@ As it would be easier to grab id with instance variable.
 puts vendor_test.vendors
 
 
-"only put return in a loop when you want ONE THING. and the first thing it would find. "
+"only put return in a loop when you want ONE THING. and the first thing it would find. "- jamie
 
 
 

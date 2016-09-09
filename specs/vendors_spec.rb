@@ -54,7 +54,8 @@ describe FarMar::Vendors do
     vendor = FarMar::Vendors.find(2691)
     expect(vendor).must_equal(nil)
   end
-## 8
+
+## 8 come back to this test. As you've tested it withing document.
 # does .all method return each objects instances of the vendor class?
 # loop through then use instance of..FarMar::Vendor class eventually placed at top.
 ## 9
@@ -68,5 +69,31 @@ describe FarMar::Vendors do
   #     # or is it, assert.instance_of...
   #     # assert obj.instance_of?(cls), msg
   #     end
+# New Batch of TESTS. ADDITIONAL FarMar::Vendors Methods
+
+# A) #market: returns the FarMar::Market instance that is associated with this vendor using the FarMar::Vendormarked_id field.
+#input: Market instance that is associated with vendor using the vendor--market_id.
+# output: associated vendor(s)
+it "Will a specific market instance return the proper vendor by market_id" do
+  vendor = FarMar::Vendors.find(1)
+  expect().must_equal()
+end
+
+
+
+# B) products returns a collection of FarMar::Product instances that are associated by FarMar:: Productvendor_id field.
+# C) # sales: returns a collection of FarMar::Sale instances that are associated by the vendor_id field
+# D) Revenue: returns the sum of all of the vendors sales in cents.
+# E) self.by_market(marker_id): returns all the vendors with the given market_id.
+
+
+
+
+
+
+
+
+
+
 
 end
