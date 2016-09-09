@@ -40,16 +40,19 @@ describe FarMar::Sales do
    it "Does calling one instance in the sales class return the sales I'm looking for (at the end of collection)? " do
       sales = FarMar::Sales.all.last.product_id
       expect(sales).must_equal("8192")
-    # must use string, because you use the to_s method. 
+    # must use string, because you use the to_s method.
     #LAST: id: 12001,amount: 8923.0, purchase_time: 2013-11-12 02:03:31 -0800,vendor_id: 2690, product_id: 8192
    end
 #5
     it "Does the sales indice at 32 match the correct product vendor id. Should be  " do
-        # seem like there will be another way to write this.
+        #vendor_id: 7
         sales = FarMar::Sales.all[32].vendor_id
-        expect(sales).must_equal("6")
+        #product_id: 14
+        sales2 = FarMar::Sales.all[32].product_id
+        expect(sales).must_equal("7")
+        expect(sales2).must_equal("14")
       # id, amount, purchase_time, vendor_id, product_id
-      # 31,2977,2013-11-09 10:57:21 -0800,6,13
+      # 32,1980,2013-11-12 03:41:53 -0800,7,14
     end
 
 # No idea how to write this test: Tesing if param passed in for .find will be properly converted and compared. As in: it treats an interger and string the same. I believe # 2 tests an interger. Now for string!

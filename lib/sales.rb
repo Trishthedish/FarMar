@@ -28,6 +28,16 @@ class FarMar::Sales
     return sales_array
   end
 
+  def self.find(id)
+    sales = FarMar::Sales.all
+    sales.each do |sale|
+      if sale.id == id.to_s
+        return sale
+      end
+    end
+    puts "invalid, entry"
+  end
+
 end
 
 
