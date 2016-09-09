@@ -1,5 +1,27 @@
 ## Notes
 TRISH you will need to clean this up later!!
+#ERROR
+/Users/trishgriego/ada/week5/FarMar/lib/markets.rb:77:in `<top (required)>': undefined method `vendors' for FarMar::Markets:Class (NoMethodError)
+	from /Users/trishgriego/ada/week5/FarMar/far_mar.rb:13:in `require_relative'
+	from /Users/trishgriego/ada/week5/FarMar/far_mar.rb:13:in `<top (required)>'
+	from lib/markets.rb:8:in `require_relative'
+	from lib/markets.rb:8:in `<main>'
+
+# WHAT DID I DO TO FIX THIS ERROR?
+1. Checked to see if it was being required at the top. Turns out it needs to be called at the top.
+2. Glad I rememberd to use ruby lib/markets.rb to run from main folder.
+3. if vendor.id == @id
+instead of if vendor.id == market.find(id)
+As it would be easier to grab id with instance variable.
+4. vendor_test = FarMar::Markets.all[0]
+puts vendor_test.vendors
+
+
+"only put return in a loop when you want ONE THING. and the first thing it would find. "
+
+
+
+
 
 Trish, after going through list of things terminal tells you. when you get no method error. One the first things you check should be.. do you have permission to access that thing??
 <!-- ng one instance in the product class return the products I'm looking for (first in line)ERROR (0.11s)

@@ -6,12 +6,13 @@
 
 # follows typical path.
 require_relative('../far_mar')
+require_relative('./vendors.rb')
 # does this go at the top of far_mar.rb??
 # since i'm calling from main directory. From this current directory. So on dot.
 
 class FarMar::Markets
 
-  attr_reader :id, :name, :address, :vendors
+  attr_reader :id, :name, :address
 
   def initialize(id, name, address, city, county, state, zip) #Each individual market has many vendors associated with it. The FarMar::Market data, in order in the CSV, consists of:
     @id = id
@@ -57,11 +58,11 @@ class FarMar::Markets
     vendors_array = []
     vendors = FarMar::Vendors.all
     vendors.each do |vendor|
-      if vendor.id == market.find(id)
+      if vendor.market_id == @id.to_s
         vendors_array << vendor
       end
-      return vendor
     end
+    return vendors_array
   end
 # compare market id with  and if they match push.
 # necessary to build:
@@ -73,18 +74,14 @@ class FarMar::Markets
 
 end
 
-vendor_test = FarMar::Markets
-vendor_test.vendors
+# Test for new vendors method. It returns all the instances that are associated by the matching market_id field.
+# I tested this in my vendors test. Do I really need to build another??
+# vendor_test = FarMar::Markets.find(1)
+# print vendor_test.vendors
 
-
-# using an id I know is in the CSV & I'm expecting it to return the market that it matches. I'm getting invalid. Perhps, I need to do something to the data passed into it.
-
-
-# puts  FarMar::Markets.find(494)
 
 
 # puts  FarMar::Markets.find(494)
-#
+# puts  FarMar::Markets.find(494)
 # puts FarMar::Markets.all.length
-
 # puts FarMar::Markets.all
