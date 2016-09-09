@@ -1,6 +1,12 @@
 ## Notes
 TRISH you will need to clean this up later!!
 #ERROR
+
+From in the main project folder (folder that holds far_mar.rb and rakefile), run: $
+
+ruby ./lib/vendors.rb
+-- Thanks Emily!
+
 /Users/trishgriego/ada/week5/FarMar/lib/markets.rb:77:in `<top (required)>': undefined method `vendors' for FarMar::Markets:Class (NoMethodError)
 	from /Users/trishgriego/ada/week5/FarMar/far_mar.rb:13:in `require_relative'
 	from /Users/trishgriego/ada/week5/FarMar/far_mar.rb:13:in `<top (required)>'
@@ -14,7 +20,7 @@ TRISH you will need to clean this up later!!
     market = FarMar::Markets.find(market_id)
     return market
   end
-THIS CAUSES A RECURSSION. 
+THIS CAUSES A RECURSSION.
 
 # WHAT DID I DO TO FIX THIS ERROR?
 1. Checked to see if it was being required at the top. Turns out it needs to be called at the top.

@@ -9,10 +9,6 @@ require_relative('../far_mar')
 # require_relative('./sales.rb')
 
 
-
-
-
-
 # ruby lib/vendors.rb
 
 class FarMar::Vendors
@@ -55,12 +51,49 @@ class FarMar::Vendors
   end
 
   def market
+    #1 #market: returns the FarMar::Market instance that is associated with this vendor using the FarMar::Vendor market_id field
     market_id = self.market_id
-    something = FarMar::Markets.find(market_id)
-    return something
+    market = FarMar::Markets.find(market_id)
+    return market
     # self.market_id
     #the market_id of vendor.
   end
+
+  def products
+    #products: returns a collection of FarMar::Product instances that are associated by the FarMar::Product vendor_id field.
+    products = FarMar::Products.all
+      products_array = []
+      products.each do |product|
+        if product.vendor_id == id
+          products_array << product
+        end
+      end
+      return products_array
+  end
+
+  def sales
+    #sales: returns a collection of FarMar::Sale instances that are associated by the vendor_id field.
+    sales = FarMar::Sales.all
+    sales_array  = []
+    sales.each do |sale|
+      if sale.vendor_id == id
+        sales_array << sale
+      end
+    end
+    return sales_array
+  end
+
+  def revenue
+    #revenue: returns the the sum of all of the vendor's sales (in cents)
+    all_sales = FarMar::Sales.all
+    revenue_array = []
+    all_sales.each do |sale|
+
+    end
+
+  end
+
+
 
 
 end

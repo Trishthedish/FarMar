@@ -23,6 +23,7 @@ class FarMar::Products
     end
     return products_array
   end
+  
   # input: id * not be confused with market id. Which will come later.
   # output: an instance of market object if there is a matching id in csv.
   def self.find(id)
