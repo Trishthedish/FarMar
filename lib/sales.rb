@@ -4,7 +4,7 @@ require_relative('../far_mar')
 class FarMar::Sales
   # Your code goes here
   attr_reader :id, :amount, :product_id, :vendor_id, :purchase_time
-  
+
   def initialize(id, amount, purchase_time, vendor_id, product_id)
   # Each sale belongs to a vendor AND a product. The vendor_id and product_id fields refer to the FarMar::Vendor and FarMar::Product ID fields, respectively. The FarMar::Sale data, in order in the CSV, consists of:
     @id = id
@@ -37,6 +37,31 @@ class FarMar::Sales
       end
     end
     puts "invalid, entry"
+  end
+
+  def vendor
+    #vendor: returns the FarMar::Vendor instance that is associated with this sale using the FarMar::Sale vendor_id field
+    # FarMar::Vendor instance
+    vendor_id = self.vendor_id
+    vendor = FarMar::Vendors.find(vendor_id)
+    return vendor
+  end
+  def product
+    #product: returns the FarMar::Product instance that is associated with this sale using the FarMar::Sale product_id field
+    product_id = self.product_id
+    product = FarMar::Products.find(product_id)
+    return product
+  end
+  def self.between(beginning_time, end_time)
+  # self.between(beginning_time, end_time): returns a collection of FarMar::Sale objects where the purchase time is between the two times given as arguments
+    sales = FarMar::Sales.all
+    sale_times = []
+    sales.each do |sale|
+      if sale.purchase_time > beginning_time || sale.purchase_time == end_time
+        sale_times << sale
+      end
+    end
+    return sale_times
   end
 
 end
