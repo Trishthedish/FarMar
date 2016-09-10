@@ -9,9 +9,10 @@ class FarMar::Sales
   # Each sale belongs to a vendor AND a product. The vendor_id and product_id fields refer to the FarMar::Vendor and FarMar::Product ID fields, respectively. The FarMar::Sale data, in order in the CSV, consists of:
     @id = id
     @amount = amount
-    @purchase_time = purchase_time
+    @purchase_time = DateTime.strptime(purchase_time, '%Y-%m-%dT%H:%M:%S%z')
     @vendor_id = vendor_id
     @product_id = product_id
+
   end
 
   def self.all
@@ -53,18 +54,33 @@ class FarMar::Sales
     return product
   end
   def self.between(beginning_time, end_time)
-  # self.between(beginning_time, end_time): returns a collection of FarMar::Sale objects where the purchase time is between the two times given as arguments
+    # self.between(beginning_time, end_time): returns a collection of FarMar::Sale objects where the purchase time is between the two times given as arguments
     sales = FarMar::Sales.all
     sale_times = []
     sales.each do |sale|
-      if sale.purchase_time > beginning_time || sale.purchase_time == end_time
+      if sale.purchase_time >= beginning_time && sale.purchase_time <= end_time
         sale_times << sale
       end
     end
     return sale_times
   end
-
+  #input:
+  #output:
+  # We want to return somethig that is going to be a collection (so an array of farmar::sale objects where the purchase time is between two given times.
+# 2013-11-09 01:16:47 -0800
+# purchase_time
+# So am I going to need to manipulate the data prior to returning that object that happened at that time?
 end
+                          #2013-11-09 01:16:47 -0800
+               #date         time            the order..
+                                              #2013
+
+date = DateTime.new(2013,2,4,5,6,9,'+7')
+date2 = DateTime.new(2013,2,5,4,5,6,'+7')
+
+sale_time_test = FarMar::Sales.between(date, date2)
+puts sale_time_test
+
 
 
 # puts FarMar::Sales.all

@@ -1,5 +1,8 @@
 ## Notes
 TRISH you will need to clean this up later!!
+Got this error: when I tried to open it up at ACT-W conference. 
+# bad path 757F9D02-0000-0000-0000-006B00000000
+
 #ERROR
 
 From in the main project folder (folder that holds far_mar.rb and rakefile), run: $
