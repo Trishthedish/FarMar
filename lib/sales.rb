@@ -1,5 +1,6 @@
 # lib/sales.rb
 require_relative('../far_mar')
+require 'Date'
 
 class FarMar::Sales
   # Your code goes here
@@ -9,7 +10,8 @@ class FarMar::Sales
   # Each sale belongs to a vendor AND a product. The vendor_id and product_id fields refer to the FarMar::Vendor and FarMar::Product ID fields, respectively. The FarMar::Sale data, in order in the CSV, consists of:
     @id = id
     @amount = amount
-    @purchase_time = DateTime.strptime(purchase_time, '%Y-%m-%dT%H:%M:%S%z')
+    # taking a string & sending it the parse method of DayTime class
+    @purchase_time = DateTime.parse(purchase_time)
     @vendor_id = vendor_id
     @product_id = product_id
 
@@ -75,11 +77,7 @@ end
                #date         time            the order..
                                               #2013
 
-date = DateTime.new(2013,2,4,5,6,9,'+7')
-date2 = DateTime.new(2013,2,5,4,5,6,'+7')
 
-sale_time_test = FarMar::Sales.between(date, date2)
-puts sale_time_test
 
 
 

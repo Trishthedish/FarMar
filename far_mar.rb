@@ -18,9 +18,17 @@ require_relative 'lib/vendors'
 # 1. Is this where are module will live?? Yes, see above.
 # Will each file need to have some sort of holding place created here??
 
-
+puts "hello"
 # this is example of what data might look.
-# [
-#   [1,People's Co-op Farmers Market,30th and Burnside,Portland,Multnomah,Oregon,97202]
-#   [2,Silverdale Farmers Market,98383,Silverdale,Kitsap,Washington,98383]
-# ]
+date = DateTime.parse('2013-11-08 21:00:32 -0800')
+date2 = DateTime.parse('2013-11-08 21:06:32 -0800')
+puts date
+puts date2
+sale_time_test = FarMar::Sales.between(date, date2)
+puts "hello #{sale_time_test.length}"
+
+
+# 9412,2320,2013-11-08 21:26:32 -0800,2115,6431
+# #
+# # 2013-11-11 06:44:12 -0800,5,8
+# 2013-11-10 05:19:05 -0800,1,1
